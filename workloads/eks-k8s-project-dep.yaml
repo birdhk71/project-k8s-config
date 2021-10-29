@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eks-k8s-project
+  namespace: eks-k8s-project
+  labels:
+    app: eks-k8s-project
+  annotations:
+    # Container Image Automated Updates
+    flux.weave.works/automated: "true"
+    # do not apply this manifest on the cluster
+    #flux.weave.works/ignore: "true"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: eks-k8s-project
+  template:
+    metadata:
+      labels:
+        app: eks-k8s-project
+    spec:
+      containers:
+      - name: eks-k8s-project
+        image: 429178776329.dkr.ecr.ap-northeast-2.amazonaws.com/eks-k8s-project:721231b3
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
