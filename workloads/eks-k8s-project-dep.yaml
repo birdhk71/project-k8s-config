@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: eks-k8s-project
-        image: 429178776329.dkr.ecr.ap-northeast-2.amazonaws.com/eks-k8s-project:fe99a677
+        image: 429178776329.dkr.ecr.ap-northeast-2.amazonaws.com/eks-k8s-project:4360b8b3
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
